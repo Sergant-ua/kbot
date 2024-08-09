@@ -16,11 +16,21 @@ test:
 get:
 		go get
 
+linux: format get
+	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/Sergant-ua/kbot/cmd.aappVersion=${VERSION}
+
+darwin: format get
+	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/Sergant-ua/kbot/cmd.aappVersion=${VERSION}
+
+windows: format get
+	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/Sergant-ua/kbot/cmd.aappVersion=${VERSION}
+
+
 build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/Sergant-ua/kbot/cmd.aappVersion=${VERSION}
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} --build-arg TARGETOS=${TARGETOS}
 
 push: image
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}

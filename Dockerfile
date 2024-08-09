@@ -2,8 +2,8 @@ FROM quay.io/projectquay/golang:1.20 as builder
 
 WORKDIR /go/src/app
 COPY . .
-
-RUN make build
+ARG TARGETOS=${TARGETOS}
+RUN make build ${TARGETOS}
 
 FROM scratch
 WORKDIR /
