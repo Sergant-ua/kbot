@@ -1,8 +1,8 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=ghcr.io/sergant-ua
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-TARGETOS=linux #linux darwin windows
-TARGETARCH=amd64 #arm64
+TARGETOS=linux#linux darwin windows
+TARGETARCH=amd64#arm64
 
 format:
 		gofmt -s -w ./
@@ -27,3 +27,4 @@ push: image
 
 clean:
 	rm -rf kbot
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
