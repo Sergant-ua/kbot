@@ -6,7 +6,7 @@ pipeline {
         choice(name: 'ARCH', choices: ['amd64', 'arm64', 'all'], description: 'Pick ARCH')
     }
 
-    enviroment {
+    environment  {
         REPO = 'https://github.com/Sergant-ua/kbot'
         BRANCH = 'develop' 
         DOCKER_REGISTRY_URL = "https://ghcr.io"
