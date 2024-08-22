@@ -27,10 +27,9 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: ${{ env.REGISTRY }}
         run: make image push
 
