@@ -48,7 +48,8 @@ pipeline {
             steps {
                 echo "Push Docker image to regisrty"
                 docker.withRegistry(DOCKER_REGISTRY_URL, "${GITHUB_USERNAME}:${GITHUB_PAT}") {
-                sh 'make push'
+                    sh 'make push'
+                }
             }
         }
 
