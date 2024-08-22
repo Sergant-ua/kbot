@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: sergantua
-  tag: ""
+  tag: "v1.0.5-"
   arch: ""
   os: ""
 secret:
