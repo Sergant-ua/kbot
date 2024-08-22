@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: "sergant-ua/kbot"
-  tag: "v1.0.5-7fa9989"
+  tag: "v1.0.5-4d7b946"
   arch: "amd64"
   os: "linux"
 secret:
