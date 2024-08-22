@@ -6,8 +6,8 @@ replicaCount: 1
 image:
   repository: "sergant-ua/kbot"
   tag: "v1.0.5-f480856"
-  arch: ""
-  os: ""
+  arch: "amd64"
+  os: "linux"
 secret:
   name: "kbot"
   key: "token"
