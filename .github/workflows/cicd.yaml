@@ -2,6 +2,10 @@ name: KBOT-CICD
 
 on: push
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   REGISTRY: ghcr.io
 
@@ -9,10 +13,6 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Checkout
