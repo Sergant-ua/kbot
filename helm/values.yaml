@@ -5,9 +5,9 @@
 replicaCount: 1
 image:
   repository: sergantua
-  tag: "v1.0.5-15a5001"
-  arch: "amd64"
-  os: "linux"
+  tag: "v1.0.5-a3126f9"
+  arch: ""
+  os: ""
 secret:
   name: "kbot"
   key: "token"
